@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jelwo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="font-sans">
+    <header class="border-b py-5">
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
+        <!-- LOGO  -->
+        <div class="flex items-center gap-6">
+          <span class="border-r border-gray-300 pr-5">
+            <img src="../images/jewelry-4-logo.webp" class="w-[130px]"
+          /></span>
+          <p class="text-gray-400 font-semibold">
+            Free UK standard delivery on all orders.
+          </p>
+        </div>
+
+        <!-- Search -->
+        <div class="flex items-center gap-6">
+          <div class="relative">
+            <input
+              type="text"
+              placeholder="Search Product..."
+              class="w-[350px] rounded-full border font-smibold py-3 px-3 pr-10 focus:outline-none"
+            />
+            <span class="absolute right-4 top-1/2 -translate-y-1/2"
+              ><i
+                class="fa-solid fa-magnifying-glass cursor-pointer text-stone-400"
+              ></i
+            ></span>
+          </div>
+
+          <!-- Icons -->
+          <div class="flex gap-7">
+            <span class="hover:text-stone-400 cursor-pointer"
+              ><i class="fa-solid fa-user-plus"></i
+            ></span>
+            <span class="hover:text-stone-400 cursor-pointer"
+              ><i class="fas fa-heart"></i>(0)</span
+            >
+            <span class="hover:text-stone-400 cursor-pointer"
+              ><i class="fa fa-shopping-bag"></i>(0)</span
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+    <div
+      class="max-w-7xl mx-auto text-lg flex items-center justify-between mt-4 mb-3"
+    >
+      <div class="flex items-center gap-2">
+        <i class="text-stone-400 fa-solid fa-headset"></i>
+        <span>(220) 123 456 7890</span>
+      </div>
+      <nav>
+        <ul
+          id="navMenu"
+          class="flex items-center gap-8 text-sm font-medium  leading-tight"
+        ></ul>
+      </nav>
+      <div class="flex items-center gap-2">
+        <i class="ri-home-heart-line text-xl text-stone-400"></i>
+        <span>FREE TRY AT HOME</span>
+      </div>
+    </div>
+    <div class="relative">
+      <img id="heroImage" src="../images/jewelry-4-slider-1.webp"/>
+      <span id="prevBtn" class="absolute top-1/2 border rounded-full px-4 py-3 left-5 bg-gray-400 text-white hover:bg-stone-700 cursor-pointer"><i class="fa-solid fa-arrow-left"></i></span>
+      <span id="nxtBtn" class="absolute top-1/2 border rounded-full px-4 py-3 right-5 bg-gray-400 text-white hover:bg-stone-700 cursor-pointer"><i class="fa-solid fa-arrow-right"></i></span>
+      <img src="../images/jewelry-4-slider-label.webp" class="absolute top-1/4 left-1/2 -translate-x-1/2">
+      <h1 class=" text-center leading-[0.95] absolute top-[44%] left-1/2 -translate-x-1/2 text-black  font-normal tracking-tighter text-[80px] font-serif">
+        Jewelery is our 
+        <br/>passion</h1>
+      <button class="absolute top-3/4 left-1/2 -translate-x-1/2 rounded-full px-7 py-3 bg-zinc-700 text-white hover:bg-black
+      transition-colors duration-500">SHOP NOW</button>
+    </div>
+
+    <script type="module" src="./js/Navbar.js"></script>
+  </body>
+</html>
