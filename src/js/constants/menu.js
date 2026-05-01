@@ -68,7 +68,67 @@ export const menuItems = [
       banner: "../images/jewelry-4-menu-banner.webp",
     },
   },
-  { name: "Products", link: "#" },
+  {
+    name: "Products",
+    link: "#",
+    Menu: {
+      columns: [
+        {
+          title: "Earnings",
+          items: [
+            "Blue heavy t-shirt",
+            "Brown sunglasses",
+            "Bucket shoes",
+            "Iamond rashmi ring",
+            "Floral gold bangle",
+            "Glitter diamond ring",
+          ],
+        },
+        {
+          title: "Bracelets",
+          items: [
+            "Blue heavy t-shirt",
+            "Brown sunglasses",
+            "Formal shoes",
+            "Formal shirt",
+            "Blue heavy t-shirt",
+            "Brown sunglasses",
+          ],
+        },
+        {
+          title: "Necklace",
+          items: [
+            "Rose gold rings",
+            "Brown sunglasses",
+            "Bucket shoes",
+            "Color print sandal",
+            "Floral gold bangle",
+            "Simple Pearl earrings",
+          ],
+        },
+        {
+          title: "Rings",
+          items: [
+            "Blue heavy t-shirt",
+            "Brown sunglasses",
+            "Dark sunglasses",
+            "Half sleev tshirt",
+            "Formal shirt",
+            "Gold nose pin",
+          ],
+        },
+      ],
+      banners: [
+        {
+          title: "Popular Connection",
+          Img: [
+            { img: "../images/jewelry-pro-26.webp", price: "From Rs.120" },
+            { img: "../images/jewelry-pro-41.webp", price: "Rs.40" },
+          ],
+        },
+      ],
+    },
+  },
   { name: "Blog", link: "#" },
   {
     name: "Pages",
