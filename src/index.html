@@ -94,10 +94,10 @@
       />
       <h1
         id="heroTitle"
-        class="text-center leading-[0.95] absolute top-[44%] left-1/2 -translate-x-1/2 text-gray-800 tracking-tighter text-[80px] font-serif"
+        class="text-center leading-[0.95] absolute top-[54%] left-1/2 -translate-x-1/2 text-gray-800 tracking-tighter text-[80px] font-serif"
       ></h1>
       <button
-        class="absolute top-3/4 left-1/2 -translate-x-1/2 rounded-full px-7 py-3 bg-zinc-700 text-white hover:bg-black transition-colors duration-500"
+        class="absolute top-3/4 translate-y-1/2 left-1/2 -translate-x-1/2 rounded-full px-7 py-3 bg-zinc-700 text-white hover:bg-black transition-colors duration-500"
       >
         SHOP NOW
       </button>
@@ -109,9 +109,17 @@
         Diamonds for every excuse 1500+ designs under
       </h2>
     </div>
-    <div id="HerosectionMenu" class="flex items-center justify-center gap-5 mt-28 "></div>
+    <div id="HerosectionMenu" class="flex items-center justify-center gap-5 mt-28"></div>
+    <div id="overflow-hidden max-w-3xl mx-auto ">
+      <h1 class="text-black mt-10 flex items-center justify-center text-4xl font-bold font-serif">Popular Category</h1>
+      <div id="slider" class="flex transition-transform duration-700 "></div>
+    </div>
+    <div id="icons" class="grid grid-cols-4 gap-4 mb-10 border mt-10"></div>
+    <div id="jewellerys" class="mt-10 flex items-center justify-center text-4xl ">New Jewelrys</div>
 
     <script type="module" src="./js/Navbar.js"></script>
     <script type="module" src="./js/Herosection.js"></script>
+    <script type="module" src="./js/Cate.js"></script>
+
   </body>
 </html>

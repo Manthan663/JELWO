@@ -34,7 +34,7 @@ function renderHeroImages() {
       <div class="relative">
 
      
-        <img src="${image.img}" class="w-full h-[400px] object-cover" />
+        <img src="${image.img}" class="w-full h-full object-cover" />
 
     
         <div class="absolute top-1/2 left-1/2  flex flex-col items-center justify-center text-center text-stone-500">
