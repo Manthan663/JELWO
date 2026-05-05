@@ -7,25 +7,19 @@ Slider.innerHTML = sliders
     (item) =>
       `
      <div class="relative min-w-[33.33%]">
-     <img src="${item.img}" class="w-full h-[400px] object-cover mt-10 px-7 hover:bg-white/50 cursor-pointer">
+     <img src="${item.img}" class="w-full h-[500px] object-cover mt-10 px-7 hover:bg-white/50 cursor-pointer">
 
       <div class="absolute inset-0 bg-white/30 opacity-0 
               hover:opacity-100 transition duration-300">
       </div>
-      <div class="absolute bg-white w-[70%] h-[30%] mb-3 flex flex-col items-center justify-center bottom-0 left-20 space-y-2">
+      <div class="absolute bg-white w-[70%] h-[25%] mb-7 flex flex-col items-center justify-center bottom-0 left-20 space-y-2">
       
         <span class="text-gray-500 text-lg">${item.itms}</span>
         <h6 class="text-gray-900 text-3xl font-serif">${item.Type}</h6>
         <h1 class="underline decoration-stone-400 hover:text-stone-500 cursor-pointer" mt-2>${item.btn}</h1>
       </div>
-
-    
-     </div>
-
-    
-
-
-    `,
+</div> 
+`,
   )
   .join("");
 
@@ -46,15 +40,15 @@ iconContainer.innerHTML = CategoryItems.map(
 `,
 ).join("");
 
-let index = 0;
-const visibleItems = 3;
+// let index = 0;
+// const visibleItems = 3;
 
-setInterval(() => {
-  index += 1;
+// setInterval(() => {
+//   index += 1;
 
-  if (index > sliders.length - visibleItems) {
-    index = 0;
-  }
+//   if (index > sliders.length - visibleItems) {
+//     index = 0;
+//   }
 
-  Slider.style.transform = `translateX(-${index * (100 / visibleItems)}%)`;
-}, 3000);
+//   Slider.style.transform = `translateX(-${index * (100 / visibleItems)}%)`;
+// }, 3000);
