@@ -2,7 +2,6 @@ import { products } from "./constants/Products.js";
 
 const Jewelerys = document.getElementById("jewellerys");
 
-
 Jewelerys.innerHTML = products
   .map(
     (item) => `

@@ -40,15 +40,15 @@ iconContainer.innerHTML = CategoryItems.map(
 `,
 ).join("");
 
-// let index = 0;
-// const visibleItems = 3;
+let index = 0;
+const visibleItems = 3;
 
-// setInterval(() => {
-//   index += 1;
+setInterval(() => {
+  index += 1;
 
-//   if (index > sliders.length - visibleItems) {
-//     index = 0;
-//   }
+  if (index > sliders.length - visibleItems) {
+    index = 0;
+  }
 
-//   Slider.style.transform = `translateX(-${index * (100 / visibleItems)}%)`;
-// }, 3000);
+  Slider.style.transform = `translateX(-${index * (100 / visibleItems)}%)`;
+}, 3000);

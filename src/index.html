@@ -31,6 +31,7 @@
         <div class="flex items-center gap-6">
           <div class="relative">
             <input
+              id="searchInput"
               type="text"
               placeholder="Search Product..."
               class="w-[350px] rounded-full border font-smibold py-3 px-3 pr-10 focus:outline-none"
@@ -119,7 +120,9 @@
       >
         Popular Category
       </h1>
-      <div id="slider" class="flex transition-transform duration-700"></div>
+      <div class="overflow-hidden w-full">
+        <div id="slider" class="flex transition-transform duration-700"></div>
+      </div>
     </div>
     <div id="icons" class="grid grid-cols-4 gap-4 mb-10 border mt-10"></div>
     <h3 class="text-center text-4xl tracking-tighter font-serif mb-3">
@@ -140,17 +143,36 @@
     <div id="trendingProducts" class="mt-10 grid grid-cols-4 gap-4"></div>
     <div class="flex items-center justify-center mt-16">
       <div
-        class="text-white bg-stone-700 rounded-full py-3 w-[290px] text-center hover:bg-black cursor-pointer"
+        class="text-white bg-stone-700 rounded-full py-3 w-[290px] text-center hover:bg-black cursor-pointer transition duration-300"
       >
         VIEW COLLECTION
       </div>
     </div>
+    <hr class="h-[1.5px] w-full mt-10" />
+    <div class="text-center mt-10">
+      <h2 class="text-4xl font-serif text-gray-800">Happy Customer</h2>
+    </div>
 
+    <!-- Testimonials -->
+    <div class="overflow-hidden w-full">
+      <div
+        id="testimonials"
+        class="max-w-7xl p-2 gap-16 flex transition-transform duration-700"
+      ></div>
+    </div>
+    <div class="text-center mt-20">
+      <h2 class="text-4xl font-serif text-gray-800">Jewelry news</h2>
+    </div>
+    <div class="overflow-hidden w-full">
+      <div id="News" class="max-w-7xl mx-auto  gap-10 flex transition-transform duration-700"></div>
+    </div>
     <script type="module" src="./js/Navbar.js"></script>
     <script type="module" src="./js/Herosection.js"></script>
     <script type="module" src="./js/Cate.js"></script>
     <script type="module" src="./js/Prod.js"></script>
     <script type="module" src="./js/Productmenu.js"></script>
-     <script type="module" src="./js/Product2.js"></script>
+    <script type="module" src="./js/Product2.js"></script>
+    <script type="module" src="./js/Review.js"></script>
+    <script type="module" src="./js/News.js"></script>
   </body>
 </html>

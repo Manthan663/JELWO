@@ -1,11 +1,12 @@
 import { products2 } from "./constants/Products2.js";
 
 const TrendingProducts = document.getElementById("trendingProducts");
-
-TrendingProducts.innerHTML = products2
-  .map(
-    (item) =>
-      `<div class="bg-gray-50 p-10 relative group hover:shadow-lg">
+const searchInput = document.getElementById("searchInput");
+function renderProducts(data) {
+  TrendingProducts.innerHTML = products2
+    .map(
+      (item) =>
+        `<div class="bg-gray-50 p-10 relative group hover:shadow-lg">
     <div class="absolute inset-0 bg-[#b8957c] opacity-0 group-hover:opacity-60 group-hover:w-full transition duration-300">
     </div>
     <div class="relative">
@@ -70,5 +71,8 @@ TrendingProducts.innerHTML = products2
     </div>
     </div>
      `,
-  )
-  .join("");
+    )
+    .join("");
+}
+renderProducts(products2);
+
