@@ -5,7 +5,7 @@ Testimonials.innerHTML = testimonials
   .map(
     (item) => `
 
-<div class="relative min-w-[55%]">
+<div class="relative min-w-[50%]">
 
 <div class="flex flex-col  gap-1 mt-10">
 

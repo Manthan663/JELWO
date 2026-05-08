@@ -77,7 +77,7 @@
       </div>
     </div>
     <div class="relative">
-      <img id="heroImage" src="${img}" />
+      <img id="heroImage" src="${img}" class="w-full h-full object-cover" />
       <span
         id="prevBtn"
         class="absolute top-1/2 border rounded-full px-4 py-3 left-5 bg-gray-400 text-white hover:bg-stone-700 cursor-pointer"
@@ -157,22 +157,28 @@
     <div class="overflow-hidden w-full">
       <div
         id="testimonials"
-        class="max-w-7xl p-2 gap-16 flex transition-transform duration-700"
+        class="flex gap-4 p-5 transition-transform duration-700"
       ></div>
     </div>
     <div class="text-center mt-20">
       <h2 class="text-4xl font-serif text-gray-800">Jewelry news</h2>
     </div>
     <div class="overflow-hidden w-full">
-      <div id="News" class="max-w-7xl mx-auto  gap-10 flex transition-transform duration-700"></div>
+      <div id="News" class="flex gap-4 transition-transform duration-700"></div>
     </div>
-    <script type="module" src="./js/Navbar.js"></script>
-    <script type="module" src="./js/Herosection.js"></script>
-    <script type="module" src="./js/Cate.js"></script>
-    <script type="module" src="./js/Prod.js"></script>
-    <script type="module" src="./js/Productmenu.js"></script>
-    <script type="module" src="./js/Product2.js"></script>
-    <script type="module" src="./js/Review.js"></script>
-    <script type="module" src="./js/News.js"></script>
+    <div class="text-center mt-20">
+      <h2 class="text-4xl font-serif text-gray-800">Watch & shop reels</h2>
+    </div>
+    <div class="overflow-hidden w-full">
+      <div
+        id="reels"
+        class="flex gap-4 transition-transform duration-700"
+      ></div>
+      <div class="flex items-center justify-center mt-10 gap-2">
+        <span id="nexBtn" class="bg-gray-300 px-4 py-3 rounded-full text-stone-500 "><i class="fa-solid fa-arrow-left"></i></span>
+        <span id="preBtn" class="bg-gray-300 px-4 py-3 rounded-full text-stone-500 "><i class="fa-solid fa-arrow-right"></i></span>
+      </div>
+    </div>
+    <script type="module" src="./js/main.js"></script>
   </body>
 </html>
