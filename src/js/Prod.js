@@ -16,7 +16,7 @@ Jewelerys.innerHTML = products
       <div class="absolute inset-0 flex items-center justify-center gap-4 
                 opacity-0 group-hover:opacity-100 transition duration-300 z-20">
 
-      <div class="w-12 h-12 border rounded-full flex items-center justify-center text-white hover:bg-black hover:text-white  cursor-pointer">
+      <div id="wishlist-btn" data-id="${item.id}" class="w-12 h-12 border rounded-full flex items-center justify-center text-white hover:bg-black hover:text-white  cursor-pointer">
         <i class="fa-regular fa-heart text-lg"></i>
       </div>
 

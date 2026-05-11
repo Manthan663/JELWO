@@ -1,7 +1,6 @@
 import { sliders, CategoryItems } from "./constants/Category.js";
 
 const Slider = document.getElementById("slider");
-console.log("hi");
 Slider.innerHTML = sliders
   .map(
     (item) =>

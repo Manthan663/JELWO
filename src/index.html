@@ -48,9 +48,11 @@
             <span class="hover:text-stone-400 cursor-pointer"
               ><i class="fa-solid fa-user-plus"></i
             ></span>
-            <span class="hover:text-stone-400 cursor-pointer"
-              ><i class="fas fa-heart"></i>(0)</span
-            >
+            <div class="wishlist" onclick="gotoWishlist()">
+              <span class="hover:text-stone-400 cursor-pointer"
+                ><i class="fas fa-heart"></i>(0)</span
+              >
+            </div>
             <span class="hover:text-stone-400 cursor-pointer"
               ><i class="fa fa-shopping-bag"></i>(0)</span
             >
@@ -172,13 +174,30 @@
     <div class="overflow-hidden w-full">
       <div
         id="reels"
-        class="flex gap-4 transition-transform duration-700"
+        class="flex gap-6 transition-transform duration-500"
       ></div>
       <div class="flex items-center justify-center mt-10 gap-2">
-        <span id="nexBtn" class="bg-gray-300 px-4 py-3 rounded-full text-stone-500 "><i class="fa-solid fa-arrow-left"></i></span>
-        <span id="preBtn" class="bg-gray-300 px-4 py-3 rounded-full text-stone-500 "><i class="fa-solid fa-arrow-right"></i></span>
+        <span
+          id="preBtn"
+          class="bg-gray-300 px-4 py-3 rounded-full text-stone-500 hover:bg-black cursor-pointer"
+          ><i class="fa-solid fa-arrow-left"></i
+        ></span>
+        <span
+          id="nexBtn"
+          class="bg-gray-300 px-4 py-3 rounded-full text-stone-500 hover:bg-black cursor-pointer"
+          ><i class="fa-solid fa-arrow-right"></i
+        ></span>
       </div>
     </div>
+
+    <footer class="bg-[#f8f1eb] text-[#5f5147]">
+      <div
+        id="footers"
+        class="max-w-7xl mx-auto px-6 lg:px-10 py-16 mt-10"
+      ></div>
+    </footer>
+
+    <div class="bg-white flex justify-end"></div>
     <script type="module" src="./js/main.js"></script>
   </body>
 </html>

@@ -19,8 +19,8 @@ Reels.innerHTML = Videos.map(
 
   <div class="absolute inset-0"></div>
 <div class="absolute bottom-16 left-4 right-4 flex items-end gap-16">
-  <div class="w-16 h-16 bg-white">
-    <img src="${item.img}" class="w-16 h-16 object-contain textg-white">
+  <div  class="w-16 h-16 bg-white">
+    <img src="${item.img}" class="w-16 h-16 object-contain">
   </div>
 
   <div class="text-white flex flex-col justify-between">
@@ -35,3 +35,21 @@ Reels.innerHTML = Videos.map(
 `,
 ).join("");
 
+const nextBtn = document.getElementById("nexBtn");
+const prevBtn = document.getElementById("preBtn");
+
+let currentIndex = 0;
+
+nextBtn.addEventListener("click", () => {
+  if (currentIndex < Videos.length - 1) {
+    currentIndex++;
+    Reels.style.transform = `translateX(-${currentIndex * 23}%)`;
+  }
+});
+
+prevBtn.addEventListener("click", () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+    Reels.style.transform = `translateX(-${currentIndex * 23}%)`;
+  }
+});

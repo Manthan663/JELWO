@@ -2,6 +2,7 @@ export const products = [
 
  
   {
+    id:1,
     img: "../images/jewelry-product-6.webp",
     Type:"JEWELRY",
     Name:"Simple Pearl earrings",
@@ -10,6 +11,7 @@ export const products = [
     discount:"25%"
   },
   {
+    id:2,
     img: "../images/jewelry-product-56.webp",
     Type:"JEWELRY",
     Name:"Chic diamond ring",
@@ -18,6 +20,7 @@ export const products = [
     discount:"45%"
   },
   {
+    id:3,
     img: "../images/jewelry-product-51.webp",
     Type:"JEWELRY",
     Name:"Gemstone jhumkas",
@@ -26,6 +29,7 @@ export const products = [
     discount:"64%"
   },
   {
+    id:4,
     img: "../images/jewelry-product-46.webp",
     Type:"JEWELRY",
     Name:"Drop Gold Earings",
