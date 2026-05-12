@@ -2,7 +2,7 @@ import { footer, appicons } from "./constants/Footer.js";
 
 const Footer = document.getElementById("footers");
 
-function renderFooter() {
+export function renderFooter() {
   Footer.innerHTML = `
 
 <footer class="bg-[#f5f1ee] pt-24">

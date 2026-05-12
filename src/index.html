@@ -28,7 +28,7 @@
         </div>
 
         <!-- Search -->
-        <div class="flex items-center gap-6">
+        <div class="flex  items-center gap-6">
           <div class="relative">
             <input
               id="searchInput"
@@ -41,15 +41,21 @@
                 class="fa-solid fa-magnifying-glass cursor-pointer text-stone-400"
               ></i
             ></span>
+            <div
+              id="search-dropdown"
+              class="fixed inset-0 top-16 bg-white shadow-xl rounded-2xl p-4 z-50 hidden  overflow-y-auto"
+            >
           </div>
+          
+      </div>
 
           <!-- Icons -->
           <div class="flex gap-7">
             <span class="hover:text-stone-400 cursor-pointer"
               ><i class="fa-solid fa-user-plus"></i
             ></span>
-            <div class="wishlist" onclick="gotoWishlist()">
-              <span class="hover:text-stone-400 cursor-pointer"
+            <div  class="wishlist" onclick="gotoWishlist()">
+              <span id="wishlist-count" class="hover:text-stone-400 cursor-pointer"
                 ><i class="fas fa-heart"></i>(0)</span
               >
             </div>

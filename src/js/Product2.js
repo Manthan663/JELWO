@@ -1,7 +1,7 @@
 import { products2 } from "./constants/Products2.js";
 
 const TrendingProducts = document.getElementById("trendingProducts");
-const searchInput = document.getElementById("searchInput");
+
 function renderProducts(data) {
   TrendingProducts.innerHTML = products2
     .map(
