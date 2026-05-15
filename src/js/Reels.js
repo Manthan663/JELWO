@@ -53,3 +53,5 @@ prevBtn.addEventListener("click", () => {
     Reels.style.transform = `translateX(-${currentIndex * 23}%)`;
   }
 });
+
+

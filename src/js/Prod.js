@@ -1,14 +1,19 @@
 import { products } from "./constants/Products.js";
 import { products2 } from "./constants/Products2.js";
 
+const mainProducts = products;
 const allProducts = [...products, ...products2];
+
+const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+let Cart = JSON.parse(localStorage.getItem("Cart")) || [];
+
 
 const Jewelerys = document.getElementById("jewellerys");
 const searchInput = document.getElementById("searchInput");
 const searchDropdown = document.getElementById("search-dropdown");
 
 function renderProducts(data) {
-  Jewelerys.innerHTML = data 
+  Jewelerys.innerHTML = data
     .map(
       (item) => `
     <div class="bg-gray-50 p-10 relative group hover:shadow-lg transition">
@@ -20,9 +25,9 @@ function renderProducts(data) {
     <img src="${item.img}" class="w-full object-cover transition duration-500 group-hover:opacity-30">
 
       <div class="absolute inset-0 flex items-center justify-center gap-4 
-                opacity-0 group-hover:opacity-100 transition duration-300 z-20">
+                opacity-0 group-hover:opacity-100 transition duration-300 z-20 pointer-events-none">
 
-      <div id="wishlist-btn" class="w-12 h-12 border rounded-full flex items-center justify-center text-white hover:bg-black cursor-pointer">
+      <div data-id="${item.id}" class="wishlist-btn w-12 h-12 border rounded-full flex items-center justify-center text-white pointer-events-auto z-50  cursor-pointer">
         <i class="fa-regular fa-heart text-lg"></i>
       </div>
 
@@ -70,7 +75,7 @@ function renderProducts(data) {
           <button>+</button>
         </div>
       </div>
-      <span class="flex items-center justify-center text-stone-500 underline text-xl">ADD TO CART</span>
+      <span data-id="${item.id}" class="add-to-cart flex items-center justify-center text-stone-500 underline text-xl cursor-pointer">ADD TO CART</span>
     </div>
 
   </div>
@@ -83,7 +88,7 @@ function renderProducts(data) {
   }
 }
 
-renderProducts(products);
+renderProducts(mainProducts);
 
 searchInput.addEventListener("input", function () {
   const query = searchInput.value.toLowerCase().trim();
@@ -125,3 +130,170 @@ searchInput.addEventListener("input", function () {
     )
     .join("");
 });
+
+document.addEventListener("click", function (e) {
+  const wishlistBtn = e.target.classList.contains("wishlist-btn")
+    ? e.target
+    : e.target.closest(".wishlist-btn");
+
+  if (!wishlistBtn) return;
+
+  const productId = Number(wishlistBtn.dataset.id);
+
+  const product = allProducts.find(
+    (item) => Number(item.id) === Number(productId),
+  );
+
+  const index = wishlist.findIndex((item) => item.id === productId);
+
+  if (index === -1) {
+    wishlist.push(product);
+    wishlistBtn.classList.add("bg-red-500", "text-white");
+    wishlistBtn.classList.remove("bg-black");
+    console.log("added");
+  } else {
+    wishlist.splice(index, 1);
+    wishlistBtn.classList.remove("bg-red-500", "text-white");
+    console.log("Removed");
+  }
+
+  localStorage.setItem("wishlist", JSON.stringify(wishlist));
+
+  updateWishlistCount();
+});
+document.addEventListener("click", function (e) {
+  const addtocartbtn = e.target.closest(".add-to-cart");
+  if (!addtocartbtn) return;
+
+  const ProductId = Number(addtocartbtn.dataset.id);
+
+  const product = allProducts.find((item) => item.id === ProductId);
+  const exisitingProduct = Cart.find((item) => item.id === ProductId);
+
+  if (exisitingProduct) {
+    exisitingProduct.quantity += 1;
+  } else {
+    Cart.push({
+      ...product,
+      quantity: 1,
+    });
+  }
+  localStorage.setItem("Cart", JSON.stringify(Cart));
+  renderCartItems();
+  updateCartItems();
+});
+
+function updateCartItems() {
+  const cartcount = document.getElementById("cartcount");
+
+  const totalItem = Cart.reduce((total, item) => total + item.quantity, 0);
+  cartcount.innerHTML = `<i class="fa fa-shopping-bag"></i>(${totalItem})`;
+}
+
+function renderCartItems() {
+  const CartItems = document.getElementById("cartItems");
+  if (!CartItems) return;
+
+  if (Cart.length === 0) {
+    CartItems.innerHTML = `
+    <span><i class="ri-shopping-bag-line text-3xl"></i></span>
+    <p class="text-gray-600 p-5 flex items-center justify-center">Your Cart is Empty</p>
+    <button class="px-4 py-2 bg-stone-600 rounded-full text-white">Continue Shopping</button>`;
+    return;
+  }
+  CartItems.innerHTML = Cart.map(
+    (item) => `
+  <div class="relative flex items-center justify-between gap-4 p-5 border-b">
+  <img src="${item.img}" class="w-24 h-24 object-cover flex items-start">
+
+
+  <div>
+    <h3 class="font-semibold">${item.Name}</h3>
+     ${
+       item.oldPrice
+         ? `<span class="font-semibold text-stone-700">${item.Price}</span>
+            <span class="font-semibold line-through text-gray-400">${item.oldPrice}</span>`
+         : `<span class="font-semibold  text-stone-700">${item.Price}</span>`
+     }
+
+     <div class="flex items-center justify-between border px-3 text-sm w-[100px] h-8 mt-3">
+          <button class="decrease" data-id="${item.id}">-</button>
+          <button>${item.quantity}</button>
+          <button class="increase" data-id="${item.id}">+</button>
+        </div>
+  </div>
+   <div data-id="${item.id}" class="remove-from-cart
+   absolute right-4 bottom-7  text-sm text-white bg-red-600 px-1 cursor-pointer">
+<i class="fa fa-trash"></i></div>
+ </div>
+
+
+  `,
+  ).join("");
+}
+
+renderCartItems();
+updateWishlistCount();
+
+updateTotal(Cart)
+function updateTotal(Cart){
+  const totalprice = Cart.reduce((sum,item)=>{
+    return sum+(Number((item.Price))*Number(item.quantity))
+  },0);
+  document.getElementById("cartTotal").innerText =totalprice;
+  renderCartItems();
+}
+
+updateCartItems();
+
+
+
+document.addEventListener("click", function(e){
+  const incBtn = e.target.closest(".increase")
+  const decBtn = e.target.closest(".decrease")
+
+  if(incBtn){
+    const id = Number(incBtn.dataset.id);
+    Cart = Cart.map(item => {
+      if(item.id===id){
+        item.quantity+=1
+      }
+      return item;
+    });
+    localStorage.setItem("Cart",JSON.stringify(Cart));
+    renderCartItems();
+    updateCartItems();
+  }
+  if(decBtn){
+      const id = Number(decBtn.dataset.id);
+    Cart = Cart.map(item => {
+      if(item.id===id){
+        item.quantity-=1
+      }
+      return item;
+    }).filter(item => item.quantity >0);
+    localStorage.setItem("Cart",JSON.stringify(Cart));
+    renderCartItems();
+    updateCartItems();
+
+  }
+});
+
+document.addEventListener("click",function(e){
+  const remBtn = e.target.closest(".remove-from-cart")
+  if(!remBtn) return;
+      const ProductId = Number(remBtn.dataset.id);
+      Cart = Cart.filter((item)=>item.id!== ProductId)
+      localStorage.setItem("Cart",JSON.stringify(Cart));
+      renderCartItems();
+      updateCartItems();
+})
+
+function updateWishlistCount() {
+  const wishlistcount = document.getElementById("wishlist-count");
+  wishlistcount.innerHTML = `<i class="fas fa-heart"></i>(${wishlist.length})`;
+}
+
+updateWishlistCount();
+updateCartItems();
+renderCartItems();

@@ -15,57 +15,92 @@
     />
   </head>
   <body class="font-sans">
-    <header class="border-b py-5">
-      <div class="max-w-7xl mx-auto flex items-center justify-between">
-        <!-- LOGO  -->
-        <div class="flex items-center gap-6">
-          <span class="border-r border-gray-300 pr-5">
-            <img src="../images/jewelry-4-logo.webp" class="w-[130px]"
-          /></span>
-          <p class="text-gray-400 font-semibold">
-            Free UK standard delivery on all orders.
-          </p>
+    <header class="border-b py-4 px-4">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex items-center justify-between lg:hidden">
+          <button id="mobileMenuBtn" class="text-xl text-gray-600">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <!-- Logo Center -->
+          <img src="../images/jewelry-4-logo.webp" class="w-[100px]" />
+
+          <!-- Icons Right -->
+          <div class="flex items-center gap-4 text-sm">
+            <i
+              class="fa-solid fa-magnifying-glass cursor-pointer text-stone-400"
+            ></i>
+            <span class="hover:text-stone-400 cursor-pointer">
+              <i class="fa-solid fa-user-plus"></i>
+            </span>
+            <div onclick="gotoWishlist()" class="cursor-pointer">
+              <i class="fas fa-heart"></i>
+              <span id="wishlist-count-mobile">(0)</span>
+            </div>
+            <span onclick="openCart()" class="cursor-pointer">
+              <i class="fa fa-shopping-bag"></i>
+              <span id="cartcount-mobile">(0)</span>
+            </span>
+          </div>
         </div>
 
-        <!-- Search -->
-        <div class="flex  items-center gap-6">
-          <div class="relative">
-            <input
-              id="searchInput"
-              type="text"
-              placeholder="Search Product..."
-              class="w-[350px] rounded-full border font-smibold py-3 px-3 pr-10 focus:outline-none"
-            />
-            <span class="absolute right-4 top-1/2 -translate-y-1/2"
-              ><i
-                class="fa-solid fa-magnifying-glass cursor-pointer text-stone-400"
-              ></i
-            ></span>
-            <div
-              id="search-dropdown"
-              class="fixed inset-0 top-16 bg-white shadow-xl rounded-2xl p-4 z-50 hidden  overflow-y-auto"
-            >
+        <div class="hidden lg:flex items-center justify-between">
+          <!-- LOGO -->
+          <div class="flex items-center gap-6">
+            <span class="border-r border-gray-300 pr-5">
+              <img src="../images/jewelry-4-logo.webp" class="w-[130px]" />
+            </span>
+            <p class="text-gray-400 font-semibold">
+              Free UK standard delivery on all orders.
+            </p>
           </div>
-          
-      </div>
 
-          <!-- Icons -->
-          <div class="flex gap-7">
-            <span class="hover:text-stone-400 cursor-pointer"
-              ><i class="fa-solid fa-user-plus"></i
-            ></span>
-            <div  class="wishlist" onclick="gotoWishlist()">
-              <span id="wishlist-count" class="hover:text-stone-400 cursor-pointer"
-                ><i class="fas fa-heart"></i>(0)</span
-              >
+          <!-- Search -->
+          <div class="flex items-center gap-6">
+            <div class="relative">
+              <input
+                id="searchInput"
+                type="text"
+                placeholder="Search Product..."
+                class="w-[350px] rounded-full border font-semibold py-3 px-3 pr-10 focus:outline-none"
+              />
+              <span class="absolute right-4 top-1/2 -translate-y-1/2">
+                <i
+                  class="fa-solid fa-magnifying-glass cursor-pointer text-stone-400"
+                ></i>
+              </span>
+              <div
+                id="search-dropdown"
+                class="fixed inset-0 top-16 bg-white shadow-xl rounded-2xl p-4 z-50 hidden overflow-y-auto"
+              ></div>
             </div>
-            <span class="hover:text-stone-400 cursor-pointer"
-              ><i class="fa fa-shopping-bag"></i>(0)</span
-            >
+
+            <!-- Icons -->
+            <div class="flex gap-7">
+              <span class="hover:text-stone-400 cursor-pointer">
+                <i class="fa-solid fa-user-plus"></i>
+              </span>
+              <div class="wishlist" onclick="gotoWishlist()">
+                <span
+                  id="wishlist-count"
+                  class="hover:text-stone-400 cursor-pointer"
+                >
+                  <i class="fas fa-heart"></i>(0)
+                </span>
+              </div>
+              <span
+                onclick="openCart()"
+                id="cartcount"
+                class="hover:text-stone-400 cursor-pointer"
+              >
+                <i class="fa fa-shopping-bag text-black"></i>(0)
+              </span>
+            </div>
           </div>
         </div>
       </div>
     </header>
+
     <div
       class="max-w-7xl mx-auto text-lg flex items-center justify-between mt-4 mb-3"
     >
@@ -85,7 +120,11 @@
       </div>
     </div>
     <div class="relative">
-      <img id="heroImage" src="${img}" class="w-full h-full object-cover" />
+      <img
+        id="heroImage"
+        src="${img}"
+        class="lg:w-full lg:h-full object-cover"
+      />
       <span
         id="prevBtn"
         class="absolute top-1/2 border rounded-full px-4 py-3 left-5 bg-gray-400 text-white hover:bg-stone-700 cursor-pointer"
@@ -106,13 +145,13 @@
         class="text-center leading-[0.95] absolute top-[54%] left-1/2 -translate-x-1/2 text-gray-800 tracking-tighter text-[80px] font-serif"
       ></h1>
       <button
-        class="absolute top-3/4 translate-y-1/2 left-1/2 -translate-x-1/2 rounded-full px-7 py-3 bg-zinc-700 text-white hover:bg-black transition-colors duration-500"
+        class="absolute top-3/4 lg:translate-y-1/2 md:translate-y-10 left-1/2 -translate-x-1/2 rounded-full px-7 py-3 bg-zinc-700 text-white hover:bg-black transition-colors duration-500"
       >
         SHOP NOW
       </button>
     </div>
     <div
-      class="bg-stone-300 rounded-full py-3 w-[500px] absolute left-1/3 mt-7"
+      class="bg-stone-300 rounded-full py-3 w-[500px] absolute lg:left-1/3 lg:mt-7 md:left-1/4 md:mt-14"
     >
       <h2 class="text-black uppercase font-semibold text-center">
         Diamonds for every excuse 1500+ designs under
@@ -204,6 +243,80 @@
     </footer>
 
     <div class="bg-white flex justify-end"></div>
+
+    <div
+      id="overlay"
+      class="fixed inset-0 bg-black/50 hidden z-40 transition-transform duration-500"
+    ></div>
+    <div
+      id="cartSidebar"
+      class="fixed top-0 right-0 h-full w-[450px] bg-white translate-x-full transition-transform duration-500 z-50 overflow-y-auto"
+    >
+      <div
+        class="absolute flex items-center justify-center inset-0 w-full h-14 bg-[#eeeceb] border-b"
+      >
+        <h1 class="text-stone-500 font-bold">
+          New Customers save 10% with code
+          <span class="text-stone-700">WELCOME 10</span>
+        </h1>
+      </div>
+
+      <div class="flex items-center justify-between p-4 mt-20">
+        <h2 class="text-xl font-bold text-black">My Shopping Cart</h2>
+        <span onclick="closeCart()" class="text-2xl cursor-pointer">X</span>
+      </div>
+      <div
+        id="cartItems"
+        class="flex flex-col items-center justify-center mt-20 p-4 gap-3"
+      >
+        <span><i class="ri-shopping-bag-line text-3xl"></i></span>
+
+        <button class="px-4 py-2 bg-stone-600 rounded-full text-white">
+          Continue Shopping
+        </button>
+      </div>
+      <div class="flex flex-col gap-2 p-10">
+        <h1 class="text-gray-400">Order special instruction</h1>
+        <div class="flex items-center justify-between">
+          <h1 class="text-black text-lg mt-1">Subtotal</h1>
+          <span id="cartTotal">0</span>
+        </div>
+        <p class="text-gray-400 text-sm">
+          Taxes, discounts and shipping calculated at checkout.
+        </p>
+        <div class="flex items-center justify-center gap-3">
+          <span class="bg-stone-700 px-7 py-2 rounded-full text-white"
+            >VIEW CART</span
+          >
+          <span class="bg-black px-7 py-2 rounded-full text-white"
+            >CHECK OUT</span
+          >
+        </div>
+      </div>
+    </div>
+    <!-- Overlay -->
+    <div class="hidden fixed inset-0 bg-black/50 z-40"></div>
+    <div
+      id="sideMenu"
+      class="fixed top-0 left-0 w-[360px] transition-transform duration-300 h-full bg-white transform -translate-x-full"
+    >
+      <div class="flex justify-between items-center p-4 border-b">
+        <h2 class="text-black font-bold text-lg">Menu</h2>
+        <h2 id="closebtn">X</h2>
+      </div>
+    </div>
+    <script>
+      const Overlay = document.getElementById("overlay");
+      const Cartsidebar = document.getElementById("cartSidebar");
+      function openCart() {
+        Cartsidebar.classList.remove("translate-x-full");
+        Overlay.classList.remove("hidden");
+      }
+      function closeCart() {
+        Cartsidebar.classList.add("translate-x-full");
+        Overlay.classList.add("hidden");
+      }
+    </script>
     <script type="module" src="./js/main.js"></script>
   </body>
 </html>

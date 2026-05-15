@@ -9,4 +9,6 @@ import "./News.js";
 import "./Reels.js";
 import "./Footer.js";
 import "./Wishlist.js";
+import "./Mobilenav.js";
+
 

@@ -13,7 +13,7 @@ function renderProducts(data) {
       
     <img src="${item.img}" class="w-full object-cover transition duration-500 group-hover:opacity-30 overflow-hidden">
     <div class="absolute inset-0 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition duration-300 z-20">
-    <div class="w-12 h-12 border rounded-full flex items-center justify-center text-white hover:bg-black hover:text-white  cursor-pointer">
+    <div data-id=${item.id} class="wishlist-btn w-12 h-12 border rounded-full flex items-center justify-center text-white hover:bg-black hover:text-white  cursor-pointer">
         <i class="fa-regular fa-heart text-lg"></i>
       </div>
 
@@ -67,7 +67,7 @@ function renderProducts(data) {
             <button>+</button>
         </div>
     </div>
-    <span class="flex items-center justify-center text-stone-500 underline text-xl">ADD TO CART</span>
+    <span data-id="${item.id}" class="add-to-cart flex items-center justify-center text-stone-500 underline text-xl">ADD TO CART</span>
     </div>
     </div>
      `,
