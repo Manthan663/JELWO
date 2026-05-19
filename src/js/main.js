@@ -1,3 +1,4 @@
+import "./mobile.js"
 import "./Navbar.js";
 import "./Herosection.js";
 import "./Cate.js";
@@ -9,6 +10,6 @@ import "./News.js";
 import "./Reels.js";
 import "./Footer.js";
 import "./Wishlist.js";
-import "./Mobilenav.js";
+
 
 

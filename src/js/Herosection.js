@@ -12,13 +12,13 @@ function renderslide(index) {
   heroTitle.innerHTML = slides[index].title;
 }
 
-// Next Btn
+
 nextBtn.addEventListener("click", () => {
   current = (current + 1) % slides.length;
   renderslide(current);
 });
 
-//prevBtn
+
 prevBtn.addEventListener("click", () => {
   current = (current - 1 + slides.length) % slides.length;
 

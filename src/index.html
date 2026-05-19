@@ -64,7 +64,7 @@
                 placeholder="Search Product..."
                 class="w-[350px] rounded-full border font-semibold py-3 px-3 pr-10 focus:outline-none"
               />
-              <span class="absolute right-4 top-1/2 -translate-y-1/2">
+              <span class="absolute right-4 top-1/2 -translate-y-1/2 ">
                 <i
                   class="fa-solid fa-magnifying-glass cursor-pointer text-stone-400"
                 ></i>
@@ -102,7 +102,7 @@
     </header>
 
     <div
-      class="max-w-7xl mx-auto text-lg flex items-center justify-between mt-4 mb-3"
+      class="max-w-7xl mx-auto  text-lg flex items-center justify-between mt-4 mb-3"
     >
       <div class="flex items-center gap-2">
         <i class="text-stone-400 fa-solid fa-headset"></i>
@@ -111,19 +111,19 @@
       <nav>
         <ul
           id="navMenu"
-          class="flex items-center gap-8 text-sm font-medium leading-tight"
+          class="md:hidden lg:flex items-center gap-8 text-sm font-medium leading-tight"
         ></ul>
       </nav>
       <div class="flex items-center gap-2">
         <i class="ri-home-heart-line text-xl text-stone-400"></i>
-        <span>FREE TRY AT HOME</span>
+        <span class="hover:text-stone-400 cursor-pointer">FREE TRY AT HOME</span>
       </div>
     </div>
     <div class="relative">
       <img
         id="heroImage"
         src="${img}"
-        class="lg:w-full lg:h-full object-cover"
+        class="lg:w-full lg:h-full md:h-[600px] object-cover"
       />
       <span
         id="prevBtn"
@@ -132,7 +132,7 @@
       ></span>
       <span
         id="nxtBtn"
-        class="absolute top-1/2 border rounded-full px-4 py-3 right-5 bg-gray-400 text-white hover:bg-stone-700 cursor-pointer"
+        class="absolute top-1/2 border rounded-full px-4 py-3 right-5 md:right-14 bg-gray-400 text-white hover:bg-stone-700 cursor-pointer"
         ><i class="fa-solid fa-arrow-right"></i
       ></span>
       <img
@@ -145,7 +145,7 @@
         class="text-center leading-[0.95] absolute top-[54%] left-1/2 -translate-x-1/2 text-gray-800 tracking-tighter text-[80px] font-serif"
       ></h1>
       <button
-        class="absolute top-3/4 lg:translate-y-1/2 md:translate-y-10 left-1/2 -translate-x-1/2 rounded-full px-7 py-3 bg-zinc-700 text-white hover:bg-black transition-colors duration-500"
+        class="absolute top-3/4 lg:translate-y-1/2 md:translate-y-24 left-1/2 -translate-x-1/2 rounded-full px-7 py-3 bg-zinc-700 text-white hover:bg-black transition-colors duration-500"
       >
         SHOP NOW
       </button>
@@ -298,25 +298,16 @@
     <div class="hidden fixed inset-0 bg-black/50 z-40"></div>
     <div
       id="sideMenu"
-      class="fixed top-0 left-0 w-[360px] transition-transform duration-300 h-full bg-white transform -translate-x-full"
+      class="fixed top-0 left-0 w-[360px] transition-transform duration-300 h-full bg-white transform z-50 overflow-y-auto -translate-x-full"
     >
-      <div class="flex justify-between items-center p-4 border-b">
-        <h2 class="text-black font-bold text-lg">Menu</h2>
-        <h2 id="closebtn">X</h2>
+      <div class="p-3 flex items-center justify-between bg-black text-white">
+        <h1 class="font-bold text-lg">Menu</h1>
+
+        <h1 id="closeBtn">X</h1>
       </div>
+
+      <div id="mobileMenuContainer" class="flex flex-col gap-4 mt-5 p-4"></div>
     </div>
-    <script>
-      const Overlay = document.getElementById("overlay");
-      const Cartsidebar = document.getElementById("cartSidebar");
-      function openCart() {
-        Cartsidebar.classList.remove("translate-x-full");
-        Overlay.classList.remove("hidden");
-      }
-      function closeCart() {
-        Cartsidebar.classList.add("translate-x-full");
-        Overlay.classList.add("hidden");
-      }
-    </script>
     <script type="module" src="./js/main.js"></script>
   </body>
 </html>

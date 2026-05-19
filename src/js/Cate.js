@@ -11,7 +11,7 @@ Slider.innerHTML = sliders
       <div class="absolute inset-0 bg-white/30 opacity-0 
               hover:opacity-100 transition duration-300">
       </div>
-      <div class="absolute bg-white w-[70%] h-[25%] mb-7 flex flex-col items-center justify-center bottom-0 left-20 space-y-2">
+      <div class="absolute bg-white md:left-10 w-[70%] h-[25%] mb-7 flex flex-col items-center justify-center bottom-0 lg:left-20 space-y-2">
       
         <span class="text-gray-500 text-lg">${item.itms}</span>
         <h6 class="text-gray-900 text-3xl font-serif">${item.Type}</h6>

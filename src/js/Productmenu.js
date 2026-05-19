@@ -8,7 +8,7 @@ productmenu.innerHTML = productMenu
       `
     <div class="relative ${index === 0 ? "w-[60%] h-[500px]" : "w-[30%] h-[500px]"} p-1">
 
-    <img src="${item.img}" class="h-full mt-10">
+    <img src="${item.img}" class="h-full md:h-[500px] mt-10">
      ${
        index === 0
          ? `
@@ -16,11 +16,11 @@ productmenu.innerHTML = productMenu
           <span class="absolute top-1/4 max-w-sm left-1/2 text-black text-5xl font-serif">
             ${item.description}
           </span>
-          <span class="absolute top-1/2 right-16 max-w-sm text-gray-400 text-xl font-serif">
+          <span class="absolute top-1/2 md:bottom-1/2 md:left-1/2  md:max-w-xs md:mt-6 right-16 max-w-sm text-gray-400 text-xl font-serif">
             ${item.subDescription}
           </span>
 
-          <div class="absolute bg-stone-500 hover:bg-black text-white text-center px-2 py-2 rounded-full w-[150px] bottom-10 right-1/4">${item.btn}</div>
+          <div class="absolute bg-stone-500 hover:bg-black text-white text-center px-2 py-2 rounded-full w-[150px] bottom-10 md:mt-20 md:right-1/4">${item.btn}</div>
 
 
           `

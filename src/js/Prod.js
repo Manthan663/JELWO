@@ -4,9 +4,8 @@ import { products2 } from "./constants/Products2.js";
 const mainProducts = products;
 const allProducts = [...products, ...products2];
 
-const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
 let Cart = JSON.parse(localStorage.getItem("Cart")) || [];
-
 
 const Jewelerys = document.getElementById("jewellerys");
 const searchInput = document.getElementById("searchInput");
@@ -82,13 +81,14 @@ function renderProducts(data) {
       `,
     )
     .join("");
-
+  
   if (data.length === 0) {
     Jewelerys.innerHTML = `<p class="text-center text-gray-400 text-xl col-span-full mt-10">No products found.</p>`;
   }
 }
 
 renderProducts(mainProducts);
+
 
 searchInput.addEventListener("input", function () {
   const query = searchInput.value.toLowerCase().trim();
@@ -133,12 +133,14 @@ searchInput.addEventListener("input", function () {
 
 document.addEventListener("click", function (e) {
   const wishlistBtn = e.target.classList.contains("wishlist-btn")
+
     ? e.target
     : e.target.closest(".wishlist-btn");
 
   if (!wishlistBtn) return;
 
   const productId = Number(wishlistBtn.dataset.id);
+  console.log(productId)
 
   const product = allProducts.find(
     (item) => Number(item.id) === Number(productId),
@@ -178,9 +180,7 @@ document.addEventListener("click", function (e) {
       quantity: 1,
     });
   }
-  localStorage.setItem("Cart", JSON.stringify(Cart));
-  renderCartItems();
-  updateCartItems();
+  refreshCart();
 });
 
 function updateCartItems() {
@@ -235,65 +235,66 @@ function renderCartItems() {
 renderCartItems();
 updateWishlistCount();
 
-updateTotal(Cart)
-function updateTotal(Cart){
-  const totalprice = Cart.reduce((sum,item)=>{
-    return sum+(Number((item.Price))*Number(item.quantity))
-  },0);
-  document.getElementById("cartTotal").innerText =totalprice;
-  renderCartItems();
+
+function updateTotal() {
+  const totalprice = Cart.reduce((sum, item) => {
+    return (
+      sum +
+      item.Price * item.quantity
+    );
+  }, 0);
+
+  document.getElementById("cartTotal").innerText = `Rs.${totalprice}`;
 }
 
 updateCartItems();
 
+document.addEventListener("click", function (e) {
+  const incBtn = e.target.closest(".increase");
+  const decBtn = e.target.closest(".decrease");
 
-
-document.addEventListener("click", function(e){
-  const incBtn = e.target.closest(".increase")
-  const decBtn = e.target.closest(".decrease")
-
-  if(incBtn){
+  if (incBtn) {
     const id = Number(incBtn.dataset.id);
-    Cart = Cart.map(item => {
-      if(item.id===id){
-        item.quantity+=1
+    Cart = Cart.map((item) => {
+      if (item.id === id) {
+        item.quantity += 1;
       }
       return item;
     });
-    localStorage.setItem("Cart",JSON.stringify(Cart));
-    renderCartItems();
-    updateCartItems();
+    refreshCart();
   }
-  if(decBtn){
-      const id = Number(decBtn.dataset.id);
-    Cart = Cart.map(item => {
-      if(item.id===id){
-        item.quantity-=1
+  if (decBtn) {
+    const id = Number(decBtn.dataset.id);
+    Cart = Cart.map((item) => {
+      if (item.id === id) {
+        item.quantity -= 1;
       }
       return item;
-    }).filter(item => item.quantity >0);
-    localStorage.setItem("Cart",JSON.stringify(Cart));
-    renderCartItems();
-    updateCartItems();
-
+    }).filter((item) => item.quantity > 0);
+    refreshCart();
   }
 });
 
-document.addEventListener("click",function(e){
-  const remBtn = e.target.closest(".remove-from-cart")
-  if(!remBtn) return;
-      const ProductId = Number(remBtn.dataset.id);
-      Cart = Cart.filter((item)=>item.id!== ProductId)
-      localStorage.setItem("Cart",JSON.stringify(Cart));
-      renderCartItems();
-      updateCartItems();
-})
+document.addEventListener("click", function (e) {
+  const remBtn = e.target.closest(".remove-from-cart");
+  if (!remBtn) return;
+  const ProductId = Number(remBtn.dataset.id);
+  Cart = Cart.filter((item) => item.id !== ProductId);
+  refreshCart();
+});
 
 function updateWishlistCount() {
   const wishlistcount = document.getElementById("wishlist-count");
   wishlistcount.innerHTML = `<i class="fas fa-heart"></i>(${wishlist.length})`;
 }
-
 updateWishlistCount();
-updateCartItems();
-renderCartItems();
+
+function saveCart() {
+  localStorage.setItem("Cart", JSON.stringify(Cart));
+}
+function refreshCart() {
+  saveCart();
+  renderCartItems();
+  updateCartItems();
+  updateTotal();
+};
